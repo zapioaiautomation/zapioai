@@ -26,7 +26,7 @@ export default function SharedNav() {
 
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="tel:+923403338516"
+            href="tel:+923045167233"
             className="text-sm text-gray-300 hover:text-white border border-white/10 hover:border-cyan-500/40 px-4 py-2 rounded-full transition-all duration-200"
           >
             Book Free Call
@@ -70,11 +70,11 @@ export default function SharedNav() {
             </a>
           ))}
           <div className="pt-3 flex flex-col gap-2 border-t border-white/5">
-            <a href="tel:+923403338516" className="text-center text-sm text-white border border-white/10 px-4 py-2.5 rounded-full">
+            <a href="tel:+923045167233" className="text-center text-sm text-white border border-white/10 px-4 py-2.5 rounded-full">
               Book Free Call
             </a>
             <a
-              href="https://wa.me/923403338516"
+              href="https://wa.me/923045167233?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20AI%20strategy%20call"
               target="_blank"
               rel="noopener noreferrer"
               className="text-center text-sm bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2.5 rounded-full font-medium flex items-center justify-center gap-2"

@@ -7,10 +7,45 @@ import SharedNav from "@/components/ui/shared-nav";
 
 function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    setError(false);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const body = {
+      access_key: "29bbf68e-e04f-4ffa-8ec3-e1da6858aa6d",
+      subject: "New contact form submission from zapioai.com",
+      from_name: (data.get("name") as string) || "Zapioai Website",
+      name: data.get("name"),
+      email: data.get("email"),
+      phone: data.get("phone"),
+      business: data.get("business"),
+      message: data.get("message"),
+    };
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -39,6 +74,7 @@ function ContactForm() {
         <div>
           <label className="text-sm text-gray-400 mb-1.5 block">Full Name *</label>
           <input
+            name="name"
             required
             className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 placeholder:text-gray-600 transition-all"
             placeholder="John Smith"
@@ -47,6 +83,7 @@ function ContactForm() {
         <div>
           <label className="text-sm text-gray-400 mb-1.5 block">Email Address *</label>
           <input
+            name="email"
             required
             type="email"
             className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 placeholder:text-gray-600 transition-all"
@@ -57,6 +94,7 @@ function ContactForm() {
       <div>
         <label className="text-sm text-gray-400 mb-1.5 block">Phone / WhatsApp</label>
         <input
+          name="phone"
           type="tel"
           className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 placeholder:text-gray-600 transition-all"
           placeholder="+1 234 567 8900"
@@ -65,6 +103,7 @@ function ContactForm() {
       <div>
         <label className="text-sm text-gray-400 mb-1.5 block">Business / Industry *</label>
         <input
+          name="business"
           required
           className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 placeholder:text-gray-600 transition-all"
           placeholder="e.g. Real estate agency in Dubai"
@@ -73,18 +112,27 @@ function ContactForm() {
       <div>
         <label className="text-sm text-gray-400 mb-1.5 block">What would you like to automate? *</label>
         <textarea
+          name="message"
           required
           rows={5}
           className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/20 placeholder:text-gray-600 transition-all resize-none"
           placeholder="Tell us about your business challenges and what you'd like to automate — leads, follow-ups, support, operations, etc."
         />
       </div>
+      {error && (
+        <p className="text-sm text-red-400 text-center">
+          Something went wrong. Please WhatsApp us at{" "}
+          <a href="https://wa.me/923045167233" className="underline hover:text-red-300">+923045167233</a>{" "}
+          instead.
+        </p>
+      )}
       <button
         type="submit"
-        className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold py-4 rounded-xl hover:from-cyan-400 hover:to-blue-500 transition-all duration-200 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 flex items-center justify-center gap-2"
+        disabled={loading}
+        className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold py-4 rounded-xl hover:from-cyan-400 hover:to-blue-500 transition-all duration-200 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         <ArrowRight size={18} />
-        Send Your Message →
+        {loading ? "Sending…" : "Send Your Message →"}
       </button>
       <p className="text-center text-xs text-gray-600">🔒 Your information is safe. Zero spam ever.</p>
     </form>
@@ -171,7 +219,7 @@ export default function ContactPage() {
                   <div>
                     <p className="text-sm font-medium text-white">WhatsApp</p>
                     <a
-                      href="https://wa.me/923403338516"
+                      href="https://wa.me/923045167233?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20AI%20strategy%20call"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-gray-500 hover:text-green-400 transition-colors"
@@ -189,7 +237,7 @@ export default function ContactPage() {
                   Book a free 30-minute strategy call on WhatsApp and we&apos;ll identify your top 3 AI opportunities on the spot.
                 </p>
                 <a
-                  href="https://wa.me/923403338516?text=Hello%20Zapioai!%20I'd%20like%20to%20book%20a%20free%20strategy%20call."
+                  href="https://wa.me/923045167233?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20AI%20strategy%20call?text=Hello%20Zapioai!%20I'd%20like%20to%20book%20a%20free%20strategy%20call."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-400 text-white font-semibold px-5 py-2.5 rounded-xl transition-all duration-200 text-sm w-full justify-center"

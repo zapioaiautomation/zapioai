@@ -70,7 +70,7 @@ const testimonials = [
 ];
 
 const socials = [
-  { name: "WhatsApp", image: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg", href: "https://wa.me/923403338516" },
+  { name: "WhatsApp", image: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg", href: "https://wa.me/923045167233?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20AI%20strategy%20call" },
   { name: "LinkedIn", image: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png", href: "#" },
   { name: "Instagram", image: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png", href: "#" },
   { name: "YouTube", image: "https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg", href: "#" },
@@ -81,7 +81,7 @@ const circleNavItems = [
   { label: "Services", icon: <Briefcase size={16} />, href: "#services" },
   { label: "Pricing", icon: <DollarSign size={16} />, href: "#pricing" },
   { label: "Results", icon: <TrendingUp size={16} />, href: "#results" },
-  { label: "WhatsApp", icon: <MessageCircle size={16} />, href: "https://wa.me/923403338516" },
+  { label: "WhatsApp", icon: <MessageCircle size={16} />, href: "https://wa.me/923045167233?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20AI%20strategy%20call" },
 ];
 
 const whyUsItems = [
@@ -212,7 +212,7 @@ export default function Page() {
           {/* Desktop CTAs */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href="tel:+923403338516"
+              href="tel:+923045167233"
               className="text-sm text-gray-300 hover:text-white border border-white/10 hover:border-cyan-500/40 px-4 py-2 rounded-full transition-all duration-200"
             >
               Book Free Call
@@ -253,7 +253,7 @@ export default function Page() {
               </a>
             ))}
             <div className="pt-3 flex flex-col gap-2 border-t border-white/5">
-              <a href="tel:+923403338516" className="text-center text-sm text-white border border-white/10 px-4 py-2.5 rounded-full">Book Free Call</a>
+              <a href="tel:+923045167233" className="text-center text-sm text-white border border-white/10 px-4 py-2.5 rounded-full">Book Free Call</a>
               <button onClick={() => { setAuditOpen(true); setMobileMenuOpen(false); }} className="text-sm bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-4 py-2.5 rounded-full font-medium">
                 Get Free AI Audit
               </button>
@@ -317,7 +317,7 @@ export default function Page() {
                   className="flex flex-col sm:flex-row gap-3 mb-8"
                 >
                   <a
-                    href="https://wa.me/923403338516?text=Hello%20AI%20Automation%20Agency%20%F0%9F%91%8B%20I'd%20like%20to%20book%20a%20free%20strategy%20call%20to%20discuss%20automating%20my%20business%20workflows.%20%F0%9F%9A%80"
+                    href="https://wa.me/923045167233?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20AI%20strategy%20call"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold px-6 py-3.5 rounded-xl hover:from-cyan-400 hover:to-blue-500 transition-all duration-200 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 hover:scale-105"
@@ -662,7 +662,7 @@ export default function Page() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://wa.me/923403338516?text=Hello%20AI%20Automation%20Agency%20%F0%9F%91%8B%20I'd%20like%20to%20book%20a%20free%20strategy%20call!"
+                href="https://wa.me/923045167233?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20AI%20strategy%20call"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold px-8 py-4 rounded-xl text-lg hover:from-cyan-400 hover:to-blue-500 transition-all duration-200 shadow-2xl shadow-cyan-500/40 hover:shadow-cyan-500/60 hover:scale-105"
@@ -758,7 +758,7 @@ export default function Page() {
                 </div>
                 <div className="flex items-center gap-2.5">
                   <MessageCircle size={14} className="text-green-400 flex-shrink-0" />
-                  <a href="https://wa.me/923403338516" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-green-400 text-sm transition-colors">WhatsApp Chat</a>
+                  <a href="https://wa.me/923045167233?text=Hi%2C%20I%27d%20like%20to%20book%20a%20free%20AI%20strategy%20call" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-green-400 text-sm transition-colors">WhatsApp Chat</a>
                 </div>
                 <div className="mt-4 pt-4 border-t border-white/5">
                   <p className="text-xs text-gray-600 mb-2">Industries We Serve:</p>
